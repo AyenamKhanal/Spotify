@@ -24,7 +24,7 @@ def index():
 
 @app.route('/login')
 def login():
-    scope = 'user-read-private user-read-email user-top-read user-library-read'
+    scope = 'user-top-read user-library-read'
 
     params = {
         'client_id' : CLIENT_ID,
