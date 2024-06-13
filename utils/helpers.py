@@ -22,3 +22,6 @@ def session_expiry(f):
         return f(*args, **kwargs)
     
     return decorated_function
+
+def generate_headers():
+    return  {'Authorization': f"Bearer {session['access_token']}"}

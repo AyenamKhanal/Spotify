@@ -1,7 +1,8 @@
 from requests import post, get
 
-from helpers import access_required, session_expiry
-from oauth import app, generate_headers, API_BASE_URL
+from utils.helpers import access_required, session_expiry, generate_headers
+from utils.oauth import API_BASE_URL, app
+
 
 
 @app.route('/saved-tracks')

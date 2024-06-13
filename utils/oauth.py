@@ -5,11 +5,9 @@ from requests import post, get
 from flask import Flask, render_template, redirect, request, jsonify, session
 from datetime import datetime
 
-from helpers import access_required, session_expiry
-
-load_dotenv()
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates')
 app.secret_key = "phenom"
+load_dotenv()
 
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
@@ -60,10 +58,6 @@ def callback():
         session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
 
     return render_template('page1.html')
-
-
-def generate_headers():
-    return  {'Authorization': f"Bearer {session['access_token']}"}
 
 
 @app.route("/refresh-token")
