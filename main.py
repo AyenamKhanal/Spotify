@@ -3,8 +3,6 @@ from requests import post, get
 from utils.helpers import access_required, session_expiry, generate_headers
 from utils.oauth import API_BASE_URL, app
 
-
-
 @app.route('/saved-tracks')
 @access_required
 @session_expiry
