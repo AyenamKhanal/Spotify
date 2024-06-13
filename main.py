@@ -1,12 +1,18 @@
 from requests import post, get
+import sqlite3
 
 from utils.helpers import access_required, session_expiry, generate_headers
 from utils.oauth import API_BASE_URL, app
+
 
 @app.route('/saved-tracks')
 @access_required
 @session_expiry
 def get_saved_tracks():
+
+    # connect to the database
+    conn = sqlite3.connect('spotify.db')
+    cursor = conn.cursor()
 
     # generate headers
     headers = generate_headers()
@@ -17,8 +23,18 @@ def get_saved_tracks():
     # parse json
     saved_tracks = response.json()
 
-    for track in saved_tracks["items"]:
-        print(track["track"]["name"])
+    for i in range(saved_tracks["total"]):
+        # request data to spotify and store get response
+        response = get(API_BASE_URL + f'me/tracks?limit=50?offset={}', headers=headers)
+
+        # parse json
+        saved_tracks = response.json()
+
+        for track in saved_tracks["items"]:
+            cursor.execute("INSERT INTO saved_songs (name) VALUES(?)", (track["track"]["name"],))
+            
+        conn.commit()
+
 
     return saved_tracks
 
