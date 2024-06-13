@@ -9,7 +9,7 @@ from helpers import access_required, session_expiry
 
 load_dotenv()
 app = Flask(__name__)
-app.secret_key = "ayenam"
+app.secret_key = "phenom"
 
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
