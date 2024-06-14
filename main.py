@@ -23,18 +23,6 @@ def get_saved_tracks():
     # parse json
     saved_tracks = response.json()
 
-    for i in range(saved_tracks["total"]):
-        # request data to spotify and store get response
-        response = get(API_BASE_URL + f'me/tracks?limit=50?offset={}', headers=headers)
-
-        # parse json
-        saved_tracks = response.json()
-
-        for track in saved_tracks["items"]:
-            cursor.execute("INSERT INTO saved_songs (name) VALUES(?)", (track["track"]["name"],))
-            
-        conn.commit()
-
 
     return saved_tracks
 
