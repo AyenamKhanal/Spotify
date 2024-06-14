@@ -23,7 +23,17 @@ def get_saved_tracks():
     # parse json
     saved_tracks = response.json()
 
+    # get total songs
+    total = saved_tracks["total"]
+    limit = 50
+    offset = 1
+    
+    while 
 
+    for song in saved_tracks["items"]:
+        cursor.execute("INSERT INTO saved_songs (name) VALUES (?)", (song["track"]["name"],))
+
+    conn.commit()
     return saved_tracks
 
     
