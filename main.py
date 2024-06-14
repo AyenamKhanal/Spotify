@@ -31,20 +31,30 @@ def get_saved_tracks():
 
         # parse json
         saved_tracks = response.json()
-
-        # add saved songs to saved_songs table
-        for song in saved_tracks["items"]:
-            cursor.execute("INSERT INTO saved_songs (title) VALUES (?)", (song["track"]["name"],))
-
-        # add artists to artists table
         
         unique_artists = [] # make a list to add unique artist 
 
         for track in saved_tracks["items"]:
+            # add saved songs to saved_songs table
+            cursor.execute("INSERT INTO saved_songs (title) VALUES (?)", (track["track"]["name"],))
+
+            # select song_id
+            cursor.execute("SELECT song_id FROM saved_songs WHERE title=?", (track["track"]["name"],))
+            s_id = cursor.fetchone()[0]
+
+            # add artists to artists table
             for artist in track["track"]["artists"]:
                 if artist["name"] not in unique_artists:
                     unique_artists.append(artist["name"])
                     cursor.execute("INSERT INTO artists (name) VALUES (?)", (artist["name"],))
+
+                # add to song_artists table
+
+                cursor.execute("SELECT artist_id FROM artists WHERE name=?", (artist["name"],)) # select artist_id
+                a_id = cursor.fetchone()[0]
+
+                cursor.execute("INSERT INTO song_artists (song_id, artist_id) VALUES(?,?)", (s_id, a_id))
+
 
         conn.commit()
         offset += 1
