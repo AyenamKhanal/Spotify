@@ -17,23 +17,34 @@ def get_saved_tracks():
     # generate headers
     headers = generate_headers()
 
-    # request data to spotify and store get response
-    response = get(API_BASE_URL + 'me/tracks?limit=50', headers=headers)
-
-    # parse json
-    saved_tracks = response.json()
-
     # get total songs
-    total = saved_tracks["total"]
+    # request data to spotify and store get response
+    response = get(API_BASE_URL + 'me/tracks?limit=1', headers=headers)
+
+    total = response.json()["total"]
     limit = 50
-    offset = 1
+    offset = 0
     
-    while 
+    while (limit * offset < 100):
+        # request data to spotify and store get response
+        response = get(API_BASE_URL + f'me/tracks?limit=50&offset={limit * offset}', headers=headers)
 
-    for song in saved_tracks["items"]:
-        cursor.execute("INSERT INTO saved_songs (name) VALUES (?)", (song["track"]["name"],))
+        # parse json
+        saved_tracks = response.json()
 
-    conn.commit()
+        # add saved songs to saved_songs table
+        for song in saved_tracks["items"]:
+            cursor.execute("INSERT INTO saved_songs (title) VALUES (?)", (song["track"]["name"],))
+
+        # add artists to artists table
+        for track in saved_tracks["items"]:
+            for artist in track["track"]["artists"]:
+                cursor.execute("INSERT INTO artists (name) VALUES (?)", (artist["name"],))
+
+        conn.commit()
+        offset += 1
+    
+
     return saved_tracks
 
     
