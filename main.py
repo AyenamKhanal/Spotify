@@ -37,9 +37,14 @@ def get_saved_tracks():
             cursor.execute("INSERT INTO saved_songs (title) VALUES (?)", (song["track"]["name"],))
 
         # add artists to artists table
+        
+        unique_artists = [] # make a list to add unique artist 
+
         for track in saved_tracks["items"]:
             for artist in track["track"]["artists"]:
-                cursor.execute("INSERT INTO artists (name) VALUES (?)", (artist["name"],))
+                if artist["name"] not in unique_artists:
+                    unique_artists.append(artist["name"])
+                    cursor.execute("INSERT INTO artists (name) VALUES (?)", (artist["name"],))
 
         conn.commit()
         offset += 1
