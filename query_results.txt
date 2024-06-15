@@ -1,0 +1,252 @@
+name,song_count
+Céline Dion,190
+Lata Mangeshkar,50
+Emmylou Harris,48
+Eric Clapton,39
+Fleetwood Mac,26
+Eagles,25
+Red Hot Chili Peppers,23
+Andy Timmons,22
+Taylor Swift,19
+Mark Knopfler,19
+Linda Ronstadt,17
+The Beach Boys,16
+Pink Floyd,16
+Dolly Parton,16
+Bon Jovi,16
+Dire Straits,15
+Eric Johnson,14
+Boston,14
+The Local Train,13
+Simon & Garfunkel,13
+Scorpions,13
+Aimee Nolte,13
+Yusuf / Cat Stevens,12
+The Lumineers,12
+John Mayer,12
+Chris Cornell,12
+Carole King,12
+Avenged Sevenfold,12
+Van Halen,11
+Pearl Jam,11
+Kings of Leon,11
+Heart,11
+ABBA,11
+Bryan Adams,10
+Nanci Griffith,9
+Green Day,9
+U2,8
+Shania Twain,8
+John Frusciante,8
+Led Zeppelin,7
+Jimi Hendrix,7
+Shreya Ghoshal,6
+Pantera,6
+Opeth,6
+Kate Bush,6
+The Who,5
+Survivor,5
+Supertramp,5
+Mitski,5
+Kishore Kumar,5
+Jacob Collier,5
+Gerry Rafferty,5
+Derek & The Dominos,5
+XXXTENTACION,4
+The Dreamcatchers Official,4
+The Cranberries,4
+Renaissance,4
+Mariah Carey,4
+Linkin Park,4
+Leo Sayer,4
+Kate Wolf,4
+Bipul Chettri,4
+Andrea Bocelli,4
+The Police,3
+The Civil Wars,3
+Steve Miller Band,3
+R.E.M.,3
+Queen,3
+Journey,3
+Joni Mitchell,3
+Jagjit Singh,3
+Incubus,3
+Evanescence,3
+Black Sabbath,3
+Barbra Streisand,3
+Arthur Gunn,3
+The Beatles,2
+Scott Bradlee's Postmodern Jukebox,2
+Sarah McLachlan,2
+S. D. Burman,2
+Rod Stewart Experience,2
+R. D. Burman,2
+Peter Frampton,2
+Mohammed Rafi,2
+Mike Scott,2
+Metallica,2
+Mary Chapin Carpenter,2
+Jon Bon Jovi,2
+Gotye,2
+Eminem,2
+Chris Isaak,2
+Charlotte Awbery,2
+Bruce Springsteen,2
+Bette Midler,2
+Axix,2
+Archive,2
+Alicia Keys,2
+Alice In Chains,2
+Adele,2
+AXIX,2
+3 Doors Down,2
+Édith Piaf,1
+blink-182,1
+Yngwie Malmsteen,1
+Whitney Houston,1
+Whitesnake,1
+Vylom,1
+Vishal-Shekhar,1
+Usha Mangeshkar,1
+Ultravox,1
+Tom Petty and the Heartbreakers,1
+Tochi Raina,1
+Thin Lizzy,1
+The Verve,1
+The Uglyz,1
+The Moody Blues,1
+The Hollies,1
+The Edge Band,1
+The Doors,1
+The Buggles,1
+Talking Heads,1
+Sydnei Carvalho,1
+Supra,1
+Stone Temple Pilots,1
+Sting,1
+Stevie Ray Vaughan,1
+Stephen Sanchez,1
+Spice Girls,1
+Soundgarden,1
+Sonny & Cher,1
+Skillet,1
+Shankar-Ehsaan-Loy,1
+Shankar Mahadevan,1
+Shailendra,1
+Shafqat Amanat Ali,1
+Sergio Vallin,1
+Semisonic,1
+Sarah Brightman,1
+Santana,1
+Salim–Sulaiman,1
+Sachin-Jigar,1
+S. R. Kamble,1
+Roy Ziv,1
+Roop Kumar Rathod,1
+Rockheads,1
+Richard Marx,1
+Rapsody,1
+Ralph Castelli,1
+Rage Against The Machine,1
+Radiohead,1
+R. Kelly,1
+Queensrÿche,1
+Prince,1
+Premdhoj Pradhan,1
+Prem Dhoj Pradhan,1
+Poison,1
+Phil Collins,1
+Peter Sellers,1
+Paul Hand,1
+Palle Danielsson,1
+Oasis,1
+Nirvana,1
+Ne-Yo,1
+Mouse Rat,1
+Morgan James,1
+Mohit Chauhan,1
+Megadeth,1
+Meat Loaf,1
+Mandira Karmakar,1
+Lynyrd Skynyrd,1
+Ludovico Einaudi,1
+Luciano Pavarotti,1
+Lionel Richie,1
+Lara Fabian,1
+L.V.,1
+Kurt Cobain,1
+Kimbra,1
+Keith Jarrett,1
+Kansas,1
+KK,1
+Joy Division,1
+Joss Stone,1
+Josh Franklin,1
+Jon Christensen,1
+Jon Astley,1
+John Sebastian,1
+John Clayton,1
+Jennifer Nettles,1
+Jeff Beck,1
+Jean-Pierre Ferland,1
+Jarred Dymore,1
+Janis Joplin,1
+Jan Garbarek,1
+Jaideep Sahni,1
+Irshad Kamil,1
+I Virtuosi Italiani,1
+Huey Lewis & The News,1
+Hoobastank,1
+Harry Styles,1
+Haley Reinhart,1
+Guns N' Roses,1
+George Harrison,1
+Genesis,1
+Gauri Amit B,1
+Gary Moore,1
+Gary Lightbody,1
+Garou,1
+Frankie Valli,1
+Firehouse,1
+Fher,1
+Extreme,1
+Elton John,1
+Elaine Paige,1
+Eddie Vedder,1
+Ed Sheeran,1
+Don McLean,1
+Dido,1
+Dibesh Pokharel,1
+Diana Ross,1
+Delbert McClinton,1
+Deep Purple,1
+Daniel Hope,1
+Cutting Crew,1
+Coolio,1
+Cilla Black,1
+Cheap Trick,1
+Caralisa Monteiro,1
+Captain & Tennille,1
+Boyz II Men,1
+Bonnie Tyler,1
+Bob Dylan,1
+Big Brother & The Holding Company,1
+Berlin,1
+Benny Dayal,1
+Bee Gees,1
+Barry Manilow,1
+Bad English,1
+Audioslave,1
+Atomic Bush,1
+Atif Aslam,1
+Arijit Singh,1
+Anu Malik,1
+Angu Bhutia,1
+Andy Macpherson,1
+Alison Krauss & Union Station,1
+Alison Krauss,1
+Aerosmith,1
+Adrian Pradhan,1
+Aaron Neville,1
+A.R. Rahman,1
+,1
