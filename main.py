@@ -27,9 +27,9 @@ def get_saved_tracks():
     limit = 50
     offset = 0
     
-    while (limit * offset < 5):
+    while (limit * offset < total):
         # request data to spotify and store get response
-        response = get(API_BASE_URL + f'me/tracks?limit=5&offset={limit * offset}', headers=headers)
+        response = get(API_BASE_URL + f'me/tracks?limit=50&offset={limit * offset}', headers=headers)
 
         # parse json
         saved_tracks = response.json()
@@ -65,7 +65,7 @@ def get_saved_tracks():
     cursor.close()
     conn.close()
     
-    return redirect('/artist-count')
+    return saved_tracks
 
 
 @app.route('/thank-you')
@@ -91,8 +91,6 @@ def artist_count():
     for row in cursor.fetchall():
         artist_id, count = row
         countTable[artist_id] = count
-    
-    print(countTable)
 
     return redirect('/thank-you')
 
