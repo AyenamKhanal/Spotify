@@ -1,8 +1,10 @@
 from requests import post, get
 import sqlite3
+from flask import render_template, redirect
 
 from utils.helpers import access_required, session_expiry, generate_headers
 from utils.oauth import API_BASE_URL, app
+
 
 
 @app.route('/saved-tracks')
@@ -25,9 +27,9 @@ def get_saved_tracks():
     limit = 50
     offset = 0
     
-    while (limit * offset < 100):
+    while (limit * offset < 5):
         # request data to spotify and store get response
-        response = get(API_BASE_URL + f'me/tracks?limit=50&offset={limit * offset}', headers=headers)
+        response = get(API_BASE_URL + f'me/tracks?limit=5&offset={limit * offset}', headers=headers)
 
         # parse json
         saved_tracks = response.json()
@@ -59,8 +61,43 @@ def get_saved_tracks():
         conn.commit()
         offset += 1
     
+    # Close the cursor and connection
+    cursor.close()
+    conn.close()
+    
+    return redirect('/artist-count')
 
-    return saved_tracks
+
+@app.route('/thank-you')
+@access_required
+@session_expiry
+def homepage():
+    return "Thank You"
+
+@app.route('/artist-count')
+@access_required
+@session_expiry
+def artist_count():
+
+    # connect to the database
+    conn = sqlite3.connect('spotify.db')
+    cursor = conn.cursor()
+
+    countTable = {} # dict to store the table info
+
+    # query to get the count of each artist
+    cursor.execute("SELECT artist_id, COUNT(*) FROM song_artists GROUP BY artist_id")
+
+    for row in cursor.fetchall():
+        artist_id, count = row
+        countTable[artist_id] = count
+    
+    print(countTable)
+
+    return redirect('/thank-you')
+
+    #return render_template('artistcount.html', countTable=countTable)
+
 
     
 if __name__ == '__main__':
