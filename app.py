@@ -5,7 +5,7 @@ from requests import post, get
 from flask import Flask, render_template, redirect, request, jsonify, session
 from datetime import datetime
 
-app = Flask(__name__, template_folder='../templates')
+app = Flask(__name__, template_folder='templates')
 app.secret_key = "phenom"
 load_dotenv()
 
@@ -81,3 +81,5 @@ def refresh_token():
 
         return redirect('/playlists')
     
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=True)
