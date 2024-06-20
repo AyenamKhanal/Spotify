@@ -5,11 +5,26 @@
 {% endblock %}
 
 {% block main %}
-    <ol>
-        {% for song in response %}
-            <li>{{ song }}</li>
-        {% endfor %}     
-    </ol>
-    
 
+<div class="container">
+    <div class="table-container"> 
+        <h4>Top Tracks</h4> 
+
+        <ol>
+            {% for track in tracks %}
+                <li>{{ track }}</li>
+            {% endfor %}
+        </ol>   
+    </div>
+    <div class="table-container">
+        <h4>Top Artists</h4>
+
+        <ol>
+            {% for artist in artists %}
+                <li>{{ artist }}</li>
+            {% endfor %}
+        </ol>   
+    </div>
+</div>
+    
 {% endblock %}s
