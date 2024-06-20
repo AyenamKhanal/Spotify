@@ -88,7 +88,7 @@ def home():
 
     # get top tracks
 
-    return render_template("home.html", tracks = get_top_tracks(), artists = get_top_artists())
+    return render_template("test.html", tracks = get_top_tracks(), artists = get_top_artists())
 
 
 if __name__ == '__main__':
