@@ -5,6 +5,8 @@ from requests import post, get
 from flask import Flask, render_template, redirect, request, jsonify, session
 from datetime import datetime
 
+from extra.queries import get_top_tracks, get_top_artists
+
 app = Flask(__name__, template_folder='templates')
 app.secret_key = "phenom"
 load_dotenv()
@@ -83,9 +85,11 @@ def refresh_token():
     
 @app.route("/home")
 def home():
-    return render_template("home.html")
+
+    # get top tracks
+
+    return render_template("home.html", response = get_top_artists())
 
 
-    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

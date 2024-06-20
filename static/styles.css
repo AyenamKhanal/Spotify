@@ -75,3 +75,9 @@ main {
 .body {
     background-color: var(--GREEN);
 }
+
+ol {
+    position: relative;
+    left: 30px;
+    text-align: left;
+}

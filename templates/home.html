@@ -5,10 +5,11 @@
 {% endblock %}
 
 {% block main %}
-    <div>
-        
-    </div>
-    <div>
+    <ol>
+        {% for song in response %}
+            <li>{{ song }}</li>
+        {% endfor %}     
+    </ol>
+    
 
-    </div>
-{% endblock %}
+{% endblock %}s
