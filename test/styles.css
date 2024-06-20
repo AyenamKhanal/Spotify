@@ -14,7 +14,7 @@ body {
 .table-container {
     width: 45%; /* Adjust the width as needed */
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 0px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
