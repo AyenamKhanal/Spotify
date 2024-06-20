@@ -18,7 +18,7 @@ API_BASE_URL = "https://api.spotify.com/v1/"
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("welcome.html")
 
 @app.route('/login')
 def login():
@@ -57,7 +57,7 @@ def callback():
         session['refresh_token'] = token_info['refresh_token']
         session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
 
-    return render_template('page1.html')
+    return render_template('successful.html')
 
 
 @app.route("/refresh-token")
