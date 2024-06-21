@@ -5,6 +5,34 @@ from extra.helpers import generate_headers
 API_BASE_URL = "https://api.spotify.com/v1/"
 
 
+class userProfile():
+
+    def __init__(self):
+
+        # generate headers
+        headers = generate_headers()
+
+        # request spotify for user profile
+        response = get(API_BASE_URL + 'me', headers=headers)
+    
+        # store tracks json meta data into tracks
+        self.profile = response.json()
+
+    
+    def get_user_name(self):
+
+        # get name from JSON
+        self.name = self.profile["display_name"]
+
+        return self.name
+
+    def get_user_profile_pic(self):
+
+        # get profile pic url from JSON
+        self.profile_pic = self.profile["images"][0]["url"]
+
+        return self.profile_pic
+
 class topTracks():
 
     def __init__(self):

@@ -6,10 +6,14 @@
 
 {% block main %}
 
+<h2 id="welcome">
+    Welcome {{ user_name }},
+    <!-- img src="{{ user_profile_pic }}" alt="" -->
+</h2>
+
 <div class="container">
     <div class="table-container"> 
-        <h4>Top Tracks</h4> 
-
+        <h4 class="heading">Top Tracks</h4> 
         <ol>
             {% for track in tracks %}
 
@@ -21,13 +25,12 @@
         </ol>   
     </div>
     <div class="table-container">
-        <h4>Top Artists</h4>
-
+        <h4 class="heading">Top Artists</h4>
         <ol>
             {% for artist in artists %}
                 <li>
                     {{ artist }}
-                    <img src="{{ profile_pics[loop.index0] }}" alt="" class="home-images">
+                    <img src="{{ artists_profile_pics[loop.index0] }}" alt="" class="home-images">
                 </li>
             {% endfor %}
         </ol>   

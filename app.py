@@ -5,7 +5,7 @@ from requests import post, get
 from flask import Flask, render_template, redirect, request, jsonify, session
 from datetime import datetime
 
-from extra.queries import topTracks, topArtists
+from extra.queries import topTracks, topArtists, userProfile
 
 app = Flask(__name__, template_folder='templates')
 app.secret_key = "phenom"
@@ -24,7 +24,7 @@ def index():
 
 @app.route('/login')
 def login():
-    scope = 'user-top-read user-library-read'
+    scope = 'user-top-read user-library-read user-read-private user-read-email'
 
     params = {
         'client_id' : CLIENT_ID,
@@ -86,18 +86,24 @@ def refresh_token():
 @app.route("/home")
 def home():
 
+    # get necessary instances
     top_tracks_instance = topTracks()
     top_artists_instance = topArtists()
+    user_profile_instance = userProfile()
 
+    # get artist name and pic
     artists = top_artists_instance.get_top_artists()
-    profile_pics = top_artists_instance.get_profile_pictures()
+    artists_profile_pics = top_artists_instance.get_profile_pictures()
 
+    # get track name and pic
     tracks = top_tracks_instance.get_top_tracks()
     covers = top_tracks_instance.get_album_cover()
 
-    # get top tracks
+    # get user's name and pic
+    user_name = user_profile_instance.get_user_name()
+    user_profile_pic = user_profile_instance.get_user_profile_pic()
 
-    return render_template("home.html", tracks=tracks, artists=artists, covers=covers, profile_pics=profile_pics)
+    return render_template("home.html", tracks=tracks, artists=artists, covers=covers, artists_profile_pics=artists_profile_pics, user_name=user_name, user_profile_pic=user_profile_pic)
 
 
 if __name__ == '__main__':

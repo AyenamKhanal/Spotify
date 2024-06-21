@@ -49,6 +49,7 @@ a:hover {
 }
 
 h4 {
+    font-weight: 600;
     font-size: 30px;
 }
 
@@ -62,6 +63,7 @@ nav {
     padding: 15px;
     background-color: var(--NAVGREEN);
     font-size: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 main {
@@ -90,9 +92,10 @@ ol {
 
 .table-container {
     width: 45%; /* Adjust the width as needed */
-    border: 1px solid #ccc;
+    border: 1px solid var(--BUTTON-HOVER);
+    background-color: var(--NAVGREEN);
     padding: 10px 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 li {
@@ -103,7 +106,16 @@ li {
     display: flex;
     justify-content: center; /* Aligns the image horizontally */
     align-items: center;
-    width: 75px;
-    height: 75px;
-    top: 37px;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#welcome {
+    text-align: left;
+    font-weight: 400;
+}
+
+.heading {
+    font-size: 27px;
 }
