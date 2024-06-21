@@ -5,7 +5,7 @@ from requests import post, get
 from flask import Flask, render_template, redirect, request, jsonify, session
 from datetime import datetime
 
-from extra.queries import get_top_tracks, get_top_artists
+from extra.queries import topTracks, topArtists
 
 app = Flask(__name__, template_folder='templates')
 app.secret_key = "phenom"
@@ -86,9 +86,17 @@ def refresh_token():
 @app.route("/home")
 def home():
 
-    # get top tracks
+    top_tracks_instance = topTracks()
+    top_artists_instance = topArtists()
 
-    return render_template("test.html", tracks = get_top_tracks(), artists = get_top_artists())
+    artists = top_artists_instance.get_top_artists()
+
+    tracks = top_tracks_instance.get_top_tracks()
+    covers = top_tracks_instance.get_album_cover()
+
+    # get top tracks
+    
+    return render_template("home.html", tracks=tracks, artists=artists, covers=covers)
 
 
 if __name__ == '__main__':
