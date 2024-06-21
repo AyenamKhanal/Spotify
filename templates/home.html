@@ -27,6 +27,7 @@
             {% for artist in artists %}
                 <li>
                     {{ artist }}
+                    <img src="{{ profile_pics[loop.index0] }}" alt="" class="home-images">
                 </li>
             {% endfor %}
         </ol>   

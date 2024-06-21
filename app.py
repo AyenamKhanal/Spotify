@@ -90,13 +90,14 @@ def home():
     top_artists_instance = topArtists()
 
     artists = top_artists_instance.get_top_artists()
+    profile_pics = top_artists_instance.get_profile_pictures()
 
     tracks = top_tracks_instance.get_top_tracks()
     covers = top_tracks_instance.get_album_cover()
 
     # get top tracks
-    
-    return render_template("home.html", tracks=tracks, artists=artists, covers=covers)
+
+    return render_template("home.html", tracks=tracks, artists=artists, covers=covers, profile_pics=profile_pics)
 
 
 if __name__ == '__main__':

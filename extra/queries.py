@@ -66,6 +66,16 @@ class topArtists():
             self.artist_name.append(artist["name"])
 
         return self.artist_name
+    
+    def get_profile_pictures(self):
+
+        # declare list to store album covers
+        self.profile_pictures = []
+
+        for track in self.artists["items"]:
+            self.profile_pictures.append(track["images"][0]["url"])
+
+        return self.profile_pictures
 
 
 
