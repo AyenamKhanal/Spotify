@@ -14,7 +14,11 @@
 <div class="container">
     <div class="table-container"> 
         <h4 class="heading">Top Tracks</h4> 
-        <ol>
+        <select id="tracks-time-period">
+            <option value="monthly">Monthly</option>
+            <option value="6-monthly">6-Monthly</option>
+            <option value="yearly">Yearly</option>
+        </select>        <ol>
             {% for track in tracks %}
 
                 <li>{{ track }}
@@ -26,7 +30,11 @@
     </div>
     <div class="table-container">
         <h4 class="heading">Top Artists</h4>
-        <ol>
+        <select id="artists-time-period">
+            <option value="monthly">Monthly</option>
+            <option value="6-monthly">6-Monthly</option>
+            <option value="yearly">Yearly</option>
+        </select>        <ol>
             {% for artist in artists %}
                 <li>
                     {{ artist }}
@@ -37,4 +45,12 @@
     </div>
 </div>
     
-{% endblock %}s
+{% endblock %}
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var topTracksUrl = "{{ url_for('get_top_tracks') }}";
+    var topArtistsUrl = "{{ url_for('get_top_artists') }}";
+</script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
