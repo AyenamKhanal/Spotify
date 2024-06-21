@@ -12,7 +12,11 @@
 
         <ol>
             {% for track in tracks %}
-                <li>{{ track }}</li>
+
+                <li>{{ track }}
+                    <img src="{{ covers[loop.index0] }}" alt="" class="home-images">
+                </li>
+                
             {% endfor %}
         </ol>   
     </div>
@@ -21,7 +25,9 @@
 
         <ol>
             {% for artist in artists %}
-                <li>{{ artist }}</li>
+                <li>
+                    {{ artist }}
+                </li>
             {% endfor %}
         </ol>   
     </div>

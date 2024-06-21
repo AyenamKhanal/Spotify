@@ -96,5 +96,14 @@ ol {
 }
 
 li {
-    margin: 50px 0px;
+    margin: 10px 0px;
+}
+
+.home-images {
+    display: flex;
+    justify-content: center; /* Aligns the image horizontally */
+    align-items: center;
+    width: 75px;
+    height: 75px;
+    top: 37px;
 }
