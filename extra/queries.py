@@ -35,13 +35,16 @@ class userProfile():
 
 class topTracks():
 
-    def __init__(self):
+    def __init__(self, time_range):
+
+        # initialize time_range
+        self.time_range = time_range
 
         # generate headers
         headers = generate_headers()
 
         # request spotify for user's top tracks
-        response = get(API_BASE_URL + 'me/top/tracks?time_range=short_term&limit=5', headers=headers)
+        response = get(API_BASE_URL + f'me/top/tracks?time_range={self.time_range}&limit=5', headers=headers)
     
         # store tracks json meta data into tracks
         self.tracks = response.json()
@@ -73,13 +76,16 @@ class topTracks():
 
 class topArtists():
 
-    def __init__(self):
+    def __init__(self, time_range):
+
+        # initialize time_range
+        self.time_range = time_range
 
         # generate headers
         headers = generate_headers()
 
         # request spotify for user's top tracks
-        response = get(API_BASE_URL + 'me/top/artists?time_range=short_term&limit=5', headers=headers)
+        response = get(API_BASE_URL + f'me/top/artists?time_range={self.time_range}&limit=5', headers=headers)
     
         # store tracks json meta data into tracks
         self.artists = response.json()    

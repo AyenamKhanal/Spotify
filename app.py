@@ -87,8 +87,8 @@ def refresh_token():
 def home():
 
     # get necessary instances
-    top_tracks_instance = topTracks()
-    top_artists_instance = topArtists()
+    top_tracks_instance = topTracks("short_term")
+    top_artists_instance = topArtists("short_term")
     user_profile_instance = userProfile()
 
     # get artist name and pic
