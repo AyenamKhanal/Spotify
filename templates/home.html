@@ -14,11 +14,14 @@
 <div class="container">
     <div class="table-container"> 
         <h4 class="heading">Top Tracks</h4> 
-        <select id="tracks-time-period">
-            <option value="monthly">Monthly</option>
-            <option value="6-monthly">6-Monthly</option>
-            <option value="yearly">Yearly</option>
-        </select>        <ol>
+        <form action="/home" method="get">
+            <select id="tracks-time-period" name="track-time">
+                <option value="short_term">This Month</option>
+                <option value="medium_term">6 Months</option>
+                <option value="long_term">This Year</option>
+            </select>   
+        </form>     
+        <ol>
             {% for track in tracks %}
 
                 <li>{{ track }}
@@ -30,11 +33,14 @@
     </div>
     <div class="table-container">
         <h4 class="heading">Top Artists</h4>
-        <select id="artists-time-period">
-            <option value="monthly">Monthly</option>
-            <option value="6-monthly">6-Monthly</option>
-            <option value="yearly">Yearly</option>
-        </select>        <ol>
+        <form action="/home" method="get">
+            <select id="tracks-time-period" name="artist-time">
+                <option value="short_term">This Month</option>
+                <option value="medium_term">6 Months</option>
+                <option value="long_term">This Year</option>
+            </select>   
+        </form>        
+        <ol>
             {% for artist in artists %}
                 <li>
                     {{ artist }}
@@ -48,9 +54,6 @@
 {% endblock %}
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    var topTracksUrl = "{{ url_for('get_top_tracks') }}";
-    var topArtistsUrl = "{{ url_for('get_top_artists') }}";
+
 </script>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>

@@ -86,9 +86,13 @@ def refresh_token():
 @app.route("/home")
 def home():
 
+    track_time_range = request.form.get("track-time")
+    artist_time_range = request.form.get("artist-time")
+
+
     # get necessary instances
-    top_tracks_instance = topTracks("short_term")
-    top_artists_instance = topArtists("short_term")
+    top_tracks_instance = topTracks(track_time_range)
+    top_artists_instance = topArtists(artist_time_range)
     user_profile_instance = userProfile()
 
     # get artist name and pic
