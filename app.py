@@ -87,14 +87,17 @@ def refresh_token():
 @app.route("/home", methods=["GET", "POST"])
 def home():
 
-    track_time_range = "short_term"
-    artist_time_range = "short_term"
-
     if request.args.get("track-time"):
         track_time_range = request.args.get("track-time")
+    else:
+        track_time_range = "short_term"
+    
 
     if request.args.get("artist-time"):
         artist_time_range = request.args.get("artist-time")
+    else:
+        artist_time_range = "short_term"
+    #return render_template("test.html", response=[track_time_range, artist_time_range])
 
 
     homepage_data = get_home_page_data(track_time_range, artist_time_range)
