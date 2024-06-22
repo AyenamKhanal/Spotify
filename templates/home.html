@@ -4,6 +4,19 @@
     Home
 {% endblock %}
 
+{% block js %} 
+<script>
+    function autoSubmitForm1() {
+        document.getElementById('tracks-time-period').submit();
+    }
+
+    function autoSubmitForm2() {
+        document.getElementById('artists-time-period').submit();
+    }
+</script>
+
+{% endblock %}
+
 {% block main %}
 
 <h2 id="welcome">
@@ -14,13 +27,12 @@
 <div class="container">
     <div class="table-container"> 
         <h4 class="heading">Top Tracks</h4> 
-        <form action="/home" method="post">
-            <select id="tracks-time-period" name="track-time">
-                <option value="short_term">This Month</option>
-                <option value="medium_term">6 Months</option>
-                <option value="long_term">This Year</option>
+        <form id="tracks-time-period" action="/home" method="get">
+            <select name="track-time" onchange="autoSubmitForm1()">
+                <option value="short_term" {% if track_time_range == 'short_term' %}selected{% endif %}>This Month</option>
+                <option value="medium_term" {% if track_time_range == 'medium_term' %}selected{% endif %}>6 Months</option>
+                <option value="long_term" {% if track_time_range == 'long_term' %}selected{% endif %}>This Year</option>
             </select>   
-            <button>search</button> 
         </form>     
         <ol>
             {% for track in tracks %}
@@ -34,13 +46,12 @@
     </div>
     <div class="table-container">
         <h4 class="heading">Top Artists</h4>
-        <form action="/home" method="post">
-            <select id="artists-time-period" name="artist-time">
-                <option value="short_term">This Month</option>
-                <option value="medium_term">6 Months</option>
-                <option value="long_term">This Year</option>
+        <form id="artists-time-period" action="/home" method="get">
+            <select name="artist-time" onchange="autoSubmitForm2()">
+                <option value="short_term" {% if artist_time_range == 'short_term' %}selected{% endif %}>This Month</option>
+                <option value="medium_term" {% if artist_time_range == 'medium_term' %}selected{% endif %}>6 Months</option>
+                <option value="long_term" {% if artist_time_range == 'long_term' %}selected{% endif %}>This Year</option>
             </select>   
-            <button>search</button>
         </form>        
         <ol>
             {% for artist in artists %}
@@ -56,6 +67,4 @@
 {% endblock %}
 
 
-<script>
 
-</script>

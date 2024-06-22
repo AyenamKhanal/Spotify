@@ -90,24 +90,25 @@ def home():
     track_time_range = "short_term"
     artist_time_range = "short_term"
 
-    if request.method == "POST":
+    if request.args.get("track-time"):
+        track_time_range = request.args.get("track-time")
 
-        track_time_range = request.form.get("track-time")
-        artist_time_range = request.form.get("artist-time")
+    if request.args.get("artist-time"):
+        artist_time_range = request.args.get("artist-time")
 
-        return redirect("/home")
 
-    else:
-        homepage_data = get_home_page_data(track_time_range, artist_time_range)
+    homepage_data = get_home_page_data(track_time_range, artist_time_range)
 
-        return render_template("home.html",
-                                tracks=homepage_data["tracks"],
-                                artists=homepage_data["artists"],
-                                covers=homepage_data["covers"], 
-                                artists_profile_pics=homepage_data["artists_profile_pics"], 
-                                user_name=homepage_data["user_name"], 
-                                user_profile_pic=homepage_data["user_profile_pic"]
-                                )
+    return render_template("home.html",
+                            tracks=homepage_data["tracks"],
+                            artists=homepage_data["artists"],
+                            covers=homepage_data["covers"], 
+                            artists_profile_pics=homepage_data["artists_profile_pics"], 
+                            user_name=homepage_data["user_name"], 
+                            user_profile_pic=homepage_data["user_profile_pic"],
+                            track_time_range=track_time_range,
+                            artist_time_range=artist_time_range
+                            )
 
 
 if __name__ == '__main__':
