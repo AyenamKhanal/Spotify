@@ -14,12 +14,13 @@
 <div class="container">
     <div class="table-container"> 
         <h4 class="heading">Top Tracks</h4> 
-        <form action="/home" method="get">
+        <form action="/home" method="post">
             <select id="tracks-time-period" name="track-time">
                 <option value="short_term">This Month</option>
                 <option value="medium_term">6 Months</option>
                 <option value="long_term">This Year</option>
             </select>   
+            <button>search</button> 
         </form>     
         <ol>
             {% for track in tracks %}
@@ -33,12 +34,13 @@
     </div>
     <div class="table-container">
         <h4 class="heading">Top Artists</h4>
-        <form action="/home" method="get">
-            <select id="tracks-time-period" name="artist-time">
+        <form action="/home" method="post">
+            <select id="artists-time-period" name="artist-time">
                 <option value="short_term">This Month</option>
                 <option value="medium_term">6 Months</option>
                 <option value="long_term">This Year</option>
             </select>   
+            <button>search</button>
         </form>        
         <ol>
             {% for artist in artists %}

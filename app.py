@@ -83,31 +83,39 @@ def refresh_token():
 
         return redirect('/playlists')
     
-@app.route("/home")
+@app.route("/home", methods=["GET", "POST"])
 def home():
 
-    track_time_range = request.form.get("track-time")
-    artist_time_range = request.form.get("artist-time")
+    track_time_range = "short_term"
+    artist_time_range = "short_term"
 
+    if request.method == "POST":
 
-    # get necessary instances
-    top_tracks_instance = topTracks(track_time_range)
-    top_artists_instance = topArtists(artist_time_range)
-    user_profile_instance = userProfile()
+        track_time_range = request.form.get("track-time")
+        artist_time_range = request.form.get("artist-time")
 
-    # get artist name and pic
-    artists = top_artists_instance.get_top_artists()
-    artists_profile_pics = top_artists_instance.get_profile_pictures()
+        return redirect("/home")
 
-    # get track name and pic
-    tracks = top_tracks_instance.get_top_tracks()
-    covers = top_tracks_instance.get_album_cover()
+    else:
 
-    # get user's name and pic
-    user_name = user_profile_instance.get_user_name()
-    user_profile_pic = user_profile_instance.get_user_profile_pic()
+        # get necessary instances
+        top_tracks_instance = topTracks(track_time_range)
+        top_artists_instance = topArtists(artist_time_range)
+        user_profile_instance = userProfile()
 
-    return render_template("home.html", tracks=tracks, artists=artists, covers=covers, artists_profile_pics=artists_profile_pics, user_name=user_name, user_profile_pic=user_profile_pic)
+        # get artist name and pic
+        artists = top_artists_instance.get_top_artists()
+        artists_profile_pics = top_artists_instance.get_profile_pictures()
+
+        # get track name and pic
+        tracks = top_tracks_instance.get_top_tracks()
+        covers = top_tracks_instance.get_album_cover()
+
+        # get user's name and pic
+        user_name = user_profile_instance.get_user_name()
+        user_profile_pic = user_profile_instance.get_user_profile_pic()
+
+        return render_template("home.html", tracks=tracks, artists=artists, covers=covers, artists_profile_pics=artists_profile_pics, user_name=user_name, user_profile_pic=user_profile_pic)
 
 
 if __name__ == '__main__':
