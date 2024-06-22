@@ -33,6 +33,8 @@
                 <option value="medium_term" {% if track_time_range == 'medium_term' %}selected{% endif %}>6 Months</option>
                 <option value="long_term" {% if track_time_range == 'long_term' %}selected{% endif %}>This Year</option>
             </select>   
+            <!-- Hidden input to store the current artist-time value -->
+            <input type="hidden" id="hidden-artist-time" name="artist-time" value="{{ artist_time_range }}">
         </form>     
         <ol>
             {% for track in tracks %}
@@ -52,6 +54,8 @@
                 <option value="medium_term" {% if artist_time_range == 'medium_term' %}selected{% endif %}>6 Months</option>
                 <option value="long_term" {% if artist_time_range == 'long_term' %}selected{% endif %}>This Year</option>
             </select>   
+            <!-- Hidden input to store the current track-time value -->
+            <input type="hidden" id="hidden-track-time" name="track-time" value="{{ track_time_range }}">
         </form>        
         <ol>
             {% for artist in artists %}

@@ -5,7 +5,6 @@ from requests import post, get
 from flask import Flask, render_template, redirect, request, jsonify, session
 from datetime import datetime
 
-from extra.queries import topTracks, topArtists, userProfile
 from extra.helpers2 import get_home_page_data
 
 app = Flask(__name__, template_folder='templates')
