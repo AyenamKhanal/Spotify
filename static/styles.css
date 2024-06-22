@@ -119,3 +119,14 @@ li {
 .heading {
     font-size: 27px;
 }
+
+select {
+    background-color: var(--BUTTON-HOVER);
+    color: white;
+    border-radius: 15px;
+    padding: 2px;
+    font-size: 17px;
+    text-align: center;
+    margin: 5px;
+    border: 0.5px solid black;
+}
