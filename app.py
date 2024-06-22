@@ -6,6 +6,7 @@ from flask import Flask, render_template, redirect, request, jsonify, session
 from datetime import datetime
 
 from extra.queries import topTracks, topArtists, userProfile
+from extra.helpers2 import get_home_page_data
 
 app = Flask(__name__, template_folder='templates')
 app.secret_key = "phenom"
@@ -97,25 +98,16 @@ def home():
         return redirect("/home")
 
     else:
+        homepage_data = get_home_page_data(track_time_range, artist_time_range)
 
-        # get necessary instances
-        top_tracks_instance = topTracks(track_time_range)
-        top_artists_instance = topArtists(artist_time_range)
-        user_profile_instance = userProfile()
-
-        # get artist name and pic
-        artists = top_artists_instance.get_top_artists()
-        artists_profile_pics = top_artists_instance.get_profile_pictures()
-
-        # get track name and pic
-        tracks = top_tracks_instance.get_top_tracks()
-        covers = top_tracks_instance.get_album_cover()
-
-        # get user's name and pic
-        user_name = user_profile_instance.get_user_name()
-        user_profile_pic = user_profile_instance.get_user_profile_pic()
-
-        return render_template("home.html", tracks=tracks, artists=artists, covers=covers, artists_profile_pics=artists_profile_pics, user_name=user_name, user_profile_pic=user_profile_pic)
+        return render_template("home.html",
+                                tracks=homepage_data["tracks"],
+                                artists=homepage_data["artists"],
+                                covers=homepage_data["covers"], 
+                                artists_profile_pics=homepage_data["artists_profile_pics"], 
+                                user_name=homepage_data["user_name"], 
+                                user_profile_pic=homepage_data["user_profile_pic"]
+                                )
 
 
 if __name__ == '__main__':
