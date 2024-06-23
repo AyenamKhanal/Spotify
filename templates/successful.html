@@ -1,12 +1,25 @@
-{% extends "layout1.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <!-- styles.css -->
+    <link rel="stylesheet" href="/static/styles.css">
 
-{% block title %}
-    Successful 
-{% endblock %}
+    <!-- js -->
+     {% block js %} {% endblock %}
+</head>
+<body class="body">
+    <nav class="nav-bar">
+        <h4 id="logo">Statstify</h4>
+    </nav>
 
-{% block main %}
-    <h3>Successfully logged in</h3>
-    <div>
-        <a href="/home">Continue</a>
-    </div>
-{% endblock %}
+    <main>
+        <h3>Successfully logged in</h3>
+        <div>
+            <a href="/home" class="a-button">Continue</a>
+        </div>    
+    </main>
+</body>
+</html>

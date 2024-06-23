@@ -44,7 +44,7 @@ class topTracks():
         headers = generate_headers()
 
         # request spotify for user's top tracks
-        response = get(API_BASE_URL + f'me/top/tracks?time_range={self.time_range}&limit=15', headers=headers)
+        response = get(API_BASE_URL + f'me/top/tracks?time_range={self.time_range}&limit=5', headers=headers)
     
         # store tracks json meta data into tracks
         self.tracks = response.json()
@@ -85,7 +85,7 @@ class topArtists():
         headers = generate_headers()
 
         # request spotify for user's top tracks
-        response = get(API_BASE_URL + f'me/top/artists?time_range={self.time_range}&limit=15', headers=headers)
+        response = get(API_BASE_URL + f'me/top/artists?time_range={self.time_range}&limit=5', headers=headers)
     
         # store tracks json meta data into tracks
         self.artists = response.json()    
