@@ -11,8 +11,19 @@
      {% block js %} {% endblock %}
 </head>
 <body class="body">
-    <nav>
-        <h4>Statstify</h4>
+    <nav class="nav-bar">
+        <h4 id="logo">Statstify</h4>
+        <div class="nav-bar-no-logo">
+            <div class="nav-items-container">
+                <ul class="nav-items">
+                    <li>Song Stats</li>
+                    <li>Artist Stats</li>
+                    <li>Playlists</li>
+                </ul>
+            </div>
+            <img src="{{ user_profile_pic }}" alt="" id="profile-pic">
+        </div>
+
     </nav>
 
     <main>
