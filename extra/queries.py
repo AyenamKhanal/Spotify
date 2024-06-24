@@ -50,29 +50,17 @@ class topTracks():
         self.tracks = response.json()
 
 
-    def get_top_tracks(self):
+    def get_top_tracks_info(self):
 
-        # declare list to store track name 
-        self.track_name = []
+        # declare list to store track info 
+        self.track_info = []
 
         # parse track names from json 
         for track in self.tracks["items"]:
-            self.track_name.append(track["name"])
+            self.track_info.append({"name": track["name"], "artists": track["artists"], "cover": track["album"]["images"][0]["url"]})
 
-        return self.track_name
+        return self.track_info
     
-
-    def get_album_cover(self):
-
-        # declare list to store album covers
-        self.album_covers = []
-
-        for track in self.tracks["items"]:
-            self.album_covers.append(track["album"]["images"][0]["url"])
-
-        return self.album_covers
-
-
 
 class topArtists():
 
@@ -91,25 +79,15 @@ class topArtists():
         self.artists = response.json()    
 
 
-    def get_top_artists(self):
+    def get_top_artists_info(self):
 
-        # declare list to store artist's name
-        self.artist_name = []
+        # declare list to store artist's info
+        self.artist_info = []
 
         for artist in self.artists["items"]:
-            self.artist_name.append(artist["name"])
+            self.artist_info.append({"name": artist["name"], "image": artist["images"][0]["url"] })
 
-        return self.artist_name
-    
-    def get_profile_pictures(self):
-
-        # declare list to store album covers
-        self.profile_pictures = []
-
-        for track in self.artists["items"]:
-            self.profile_pictures.append(track["images"][0]["url"])
-
-        return self.profile_pictures
+        return self.artist_info
 
 
 
@@ -134,6 +112,6 @@ class searchTracks():
 
         # parse track names from json 
         for track in self.searched_tracks["tracks"]["items"]:
-            self.tracks_info.append({"name": track["name"], "artist": track["artists"], "image": track["album"]["images"][0]["url"]})
+            self.tracks_info.append({"name": track["name"], "artists": track["artists"], "image": track["album"]["images"][0]["url"]})
 
         return self.tracks_info

@@ -36,10 +36,14 @@
             <input type="hidden" id="hidden-artist-time" name="artist-time" value="{{ artist_time_range }}">
         </form>     
         <ol>
-            {% for track in tracks %}
+            {% for track in top_tracks %}
 
-                <li>{{ track }}
-                    <img src="{{ covers[loop.index0] }}" alt="" class="home-images">
+                <li>
+                    {{ track["name"] }} - 
+                    {% for artist in track["artists"] %}
+                        {{ artist["name"] }}{% if loop.index0 + 1 != track["artists"] | length %},{% endif %}
+                    {% endfor %}
+                    <img src="{{ track.cover }}" alt="" class="home-images">
                 </li>
                 
             {% endfor %}
@@ -57,10 +61,10 @@
             <input type="hidden" id="hidden-track-time" name="track-time" value="{{ track_time_range }}">
         </form>        
         <ol>
-            {% for artist in artists %}
+            {% for artist in top_artists %}
                 <li>
-                    {{ artist }}
-                    <img src="{{ artists_profile_pics[loop.index0] }}" alt="" class="home-images">
+                    {{ artist["name"] }}
+                    <img src="{{ artist.image }}" alt="" class="home-images">
                 </li>
             {% endfor %}
         </ol>   

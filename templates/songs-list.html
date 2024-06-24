@@ -14,8 +14,8 @@
         
                         <li>
                             {{ track["name"] }} - 
-                            {% for artist in track["artist"] %}
-                                {{ artist["name"] }}{% if loop.index0 + 1 != track["artist"] | length %},{% endif %}
+                            {% for artist in track["artists"] %}
+                                {{ artist["name"] }}{% if loop.index0 + 1 != track["artists"] | length %},{% endif %}
                             {% endfor %}
                             
                             <img src="{{ track.image }}" alt="" class="home-images">

@@ -111,10 +111,8 @@ def home():
     session["user_name"] = user_profile_data["user_name"]
 
     return render_template("home.html",
-                            tracks=homepage_data["tracks"],
-                            artists=homepage_data["artists"],
-                            covers=homepage_data["covers"], 
-                            artists_profile_pics=homepage_data["artists_profile_pics"], 
+                            top_tracks=homepage_data["top_tracks"],
+                            top_artists=homepage_data["top_artists"],
                             user_name=session["user_name"], 
                             user_profile_pic=session["user_profile_pic"],
                             track_time_range=track_time_range,

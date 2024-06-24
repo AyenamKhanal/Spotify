@@ -10,12 +10,10 @@ def get_home_page_data(track_time_range, artist_time_range):
     top_artists_instance = topArtists(artist_time_range)
 
     # get artist name and pic
-    homepage_data["artists"] = top_artists_instance.get_top_artists()
-    homepage_data["artists_profile_pics"] = top_artists_instance.get_profile_pictures()
+    homepage_data["top_artists"]= top_artists_instance.get_top_artists_info()
 
-    # get track name and pic
-    homepage_data["tracks"] = top_tracks_instance.get_top_tracks()
-    homepage_data["covers"] = top_tracks_instance.get_album_cover()
+    # get top tracks info
+    homepage_data["top_tracks"] = top_tracks_instance.get_top_tracks_info()
 
     return homepage_data
 
