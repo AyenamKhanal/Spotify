@@ -134,6 +134,6 @@ class searchTracks():
 
         # parse track names from json 
         for track in self.searched_tracks["tracks"]["items"]:
-            self.tracks_info.append({"name": track["name"], "artist": track["artists"][0]["name"], "image": track["album"]["images"][0]["url"]})
+            self.tracks_info.append({"name": track["name"], "artist": track["artists"], "image": track["album"]["images"][0]["url"]})
 
         return self.tracks_info

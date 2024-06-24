@@ -13,7 +13,11 @@
                     {% for track in song_search_data %}
         
                         <li>
-                            {{ track["name"] }} - {{ track["artist"] }}
+                            {{ track["name"] }} - 
+                            {% for artist in track["artist"] %}
+                                {{ artist["name"] }}{% if loop.index0 + 1 != track["artist"] | length %},{% endif %}
+                            {% endfor %}
+                            
                             <img src="{{ track.image }}" alt="" class="home-images">
                         </li>
                         
