@@ -6,6 +6,11 @@
 
 {% block main %}
 
-    {{ response }}
+<form action="/song-stats" method="post">
+    <div class="search-div">
+        <input autocomplete="off" autofocus name="track" placeholder="Track name" type="text" class="search-bar">
+    </div>
+    <button type="submit" class="search-button">Search</button>
+</form>
 
 {% endblock %}s

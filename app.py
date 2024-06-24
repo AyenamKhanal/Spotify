@@ -124,7 +124,7 @@ def home():
 @app.route("/song-stats", methods=["GET", "POST"])
 def song_stats():
 
-    return render_template("test.html", user_profile_pic=session["user_profile_pic"], response=session["user_name"])
+    return render_template("song-stats.html", user_profile_pic=session["user_profile_pic"])
 
 
 if __name__ == '__main__':
