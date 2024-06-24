@@ -1,0 +1,30 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    Artist Stats
+{% endblock %}
+
+{% block main %}
+
+        <div class="container">
+            <div class="table-container"> 
+                <h4 class="heading">Results for "{{ user_input }}"</h4>     
+                <ol>
+                    {% for artist in artist_search_data %}
+        
+                        <li class="list-item">
+                            {{ artist["name"] }}
+                            
+                            <div class="track-details">
+                                <img src="{{ artist.image }}" alt="" class="home-images">
+    
+                                <div class="view-stats-container">
+                                    <a href="" class="view-stats">View Stats</a>
+                                </div>
+                            </div>                        
+                        </li>
+                        
+                    {% endfor %}
+                </ol>   
+            </div>
+{% endblock %}s

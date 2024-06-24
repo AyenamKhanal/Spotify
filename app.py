@@ -5,7 +5,7 @@ from requests import post, get
 from flask import Flask, render_template, redirect, request, jsonify, session
 from datetime import datetime
 
-from extra.helpers2 import get_home_page_data, get_user_profile, get_song_search_data
+from extra.helpers2 import get_home_page_data, get_user_profile, get_song_search_data, get_artist_search_data
 from extra.helpers import apology
 
 app = Flask(__name__, template_folder='templates')
@@ -146,8 +146,21 @@ def song_stats():
 @app.route("/artist-stats", methods=["GET", "POST"])
 def artist_stats():
 
-    if request.method == ["POST"]:
-        pass
+    if request.method == "POST":
+            
+        artist = request.form.get("artist")
+
+        if not artist:
+            return apology("Input artist name", 404)
+        
+        artist_search_data = get_artist_search_data(artist)
+
+        return render_template("artists-list.html",
+                                artist_search_data=artist_search_data,
+                                user_profile_pic=session["user_profile_pic"],
+                                user_input=artist)
+
+
     else:
         return render_template("artist-stats.html", user_profile_pic=session["user_profile_pic"])
 

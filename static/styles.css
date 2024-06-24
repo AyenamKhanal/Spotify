@@ -105,13 +105,10 @@ ol {
     background-color: var(--NAVGREEN);
     padding: 10px 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    flex-direction: column;
 }
 
 li {
     margin: 10px 0px;
-    flex-direction: column;
-    flex-grow: 1;
 }
 
 .home-images {

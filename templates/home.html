@@ -53,8 +53,6 @@
                             </div>
                         </div>
                     </li>
-
-
             {% endfor %}
         </ol>   
     </div>
@@ -69,22 +67,20 @@
             <!-- Hidden input to store the current track-time value -->
             <input type="hidden" id="hidden-track-time" name="track-time" value="{{ track_time_range }}">
         </form>   
-        <div class="list-div"> 
-            <ol>
-                {% for artist in top_artists %}
-                    <li>
-                        <div>{{ artist["name"] }}</div>
-                        <div class="track-details">
-                            <img src="{{ artist.image }}" alt="" class="home-images">
+        <ol>
+            {% for artist in top_artists %}
+                <li class="list-item">
+                    <div>{{ artist["name"] }}</div>
+                    <div class="track-details">
+                        <img src="{{ artist.image }}" alt="" class="home-images">
 
-                            <div class="view-stats-container">
-                                <a href="" class="view-stats">View Stats</a>
-                            </div>
+                        <div class="view-stats-container">
+                            <a href="" class="view-stats">View Stats</a>
                         </div>
-                    </li>
-                {% endfor %}
-            </ol>
-        </div>   
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
     </div>
 </div>
     

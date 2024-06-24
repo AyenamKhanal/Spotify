@@ -115,3 +115,30 @@ class searchTracks():
             self.tracks_info.append({"name": track["name"], "artists": track["artists"], "image": track["album"]["images"][0]["url"]})
 
         return self.tracks_info
+
+
+
+class searchArtists():
+
+    def __init__(self, artist):
+
+        # generate headers
+        headers = generate_headers()
+
+        # request spotify for user's top tracks
+        response = get(API_BASE_URL + f'search?query={artist}&type=artist&limit=5', headers=headers)
+    
+        # store tracks json meta data into tracks
+        self.searched_artist = response.json()
+
+
+    def get_artist_info(self):
+
+        # declare list to store tracks info 
+        self.artist_info = []
+
+        # parse track names from json 
+        for artist in self.searched_artist["artists"]["items"]:
+            self.artist_info.append({"name": artist["name"], "image": artist["images"][0]["url"]})
+
+        return self.artist_info
