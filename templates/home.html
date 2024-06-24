@@ -74,7 +74,13 @@
                 {% for artist in top_artists %}
                     <li>
                         <div>{{ artist["name"] }}</div>
-                        <img src="{{ artist.image }}" alt="" class="home-images">
+                        <div class="track-details">
+                            <img src="{{ artist.image }}" alt="" class="home-images">
+
+                            <div class="view-stats-container">
+                                <a href="" class="view-stats">View Stats</a>
+                            </div>
+                        </div>
                     </li>
                 {% endfor %}
             </ol>
