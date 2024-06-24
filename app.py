@@ -136,7 +136,8 @@ def song_stats():
 
         return render_template("songs-list.html",
                                 song_search_data=song_search_data,
-                                user_profile_pic=session["user_profile_pic"])
+                                user_profile_pic=session["user_profile_pic"],
+                                user_input=track)
 
 
     else:

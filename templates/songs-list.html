@@ -6,12 +6,18 @@
 
 {% block main %}
 
-    {% for track in song_search_data %}
-
-        <div>
-            {{ track["name"] }} - {{ track["artist"] }}
-            <img src="{{ track.image }}" alt="" class="home-images">
-        </div>
-
-    {% endfor %}
+        <div class="container">
+            <div class="table-container"> 
+                <h4 class="heading">Results for "{{ user_input }}"</h4>     
+                <ol>
+                    {% for track in song_search_data %}
+        
+                        <li>
+                            {{ track["name"] }} - {{ track["artist"] }}
+                            <img src="{{ track.image }}" alt="" class="home-images">
+                        </li>
+                        
+                    {% endfor %}
+                </ol>   
+            </div>
 {% endblock %}s
