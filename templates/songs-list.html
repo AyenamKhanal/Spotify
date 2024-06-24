@@ -12,14 +12,19 @@
                 <ol>
                     {% for track in song_search_data %}
         
-                        <li>
+                        <li class="list-item">
                             {{ track["name"] }} - 
                             {% for artist in track["artists"] %}
                                 {{ artist["name"] }}{% if loop.index0 + 1 != track["artists"] | length %},{% endif %}
                             {% endfor %}
                             
-                            <img src="{{ track.image }}" alt="" class="home-images">
-                        </li>
+                            <div class="track-details">
+                                <img src="{{ track.image }}" alt="" class="home-images">
+    
+                                <div class="view-stats-container">
+                                    <a href="" class="view-stats">View Stats</a>
+                                </div>
+                            </div>                        </li>
                         
                     {% endfor %}
                 </ol>   

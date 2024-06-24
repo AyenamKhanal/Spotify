@@ -27,7 +27,7 @@
     <div class="table-container"> 
         <h4 class="heading">Top Tracks</h4> 
         <form id="tracks-time-period" action="/home" method="get">
-            <select name="track-time" onchange="autoSubmitForm1()">
+            <select name="track-time" onchange="autoSubmitForm1()" class="select">
                 <option value="short_term" {% if track_time_range == 'short_term' %}selected{% endif %}>This Month</option>
                 <option value="medium_term" {% if track_time_range == 'medium_term' %}selected{% endif %}>6 Months</option>
                 <option value="long_term" {% if track_time_range == 'long_term' %}selected{% endif %}>This Year</option>
@@ -38,36 +38,47 @@
         <ol>
             {% for track in top_tracks %}
 
-                <li>
-                    {{ track["name"] }} - 
-                    {% for artist in track["artists"] %}
-                        {{ artist["name"] }}{% if loop.index0 + 1 != track["artists"] | length %},{% endif %}
-                    {% endfor %}
-                    <img src="{{ track.cover }}" alt="" class="home-images">
-                </li>
-                
+                    <li class="list-item">
+                        <div>
+                            {{ track["name"] }} - 
+                            {% for artist in track["artists"] %}
+                                {{ artist["name"] }}{% if loop.index0 + 1 != track["artists"] | length %},{% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="track-details">
+                            <img src="{{ track.cover }}" alt="" class="home-images">
+
+                            <div class="view-stats-container">
+                                <a href="" class="view-stats">View Stats</a>
+                            </div>
+                        </div>
+                    </li>
+
+
             {% endfor %}
         </ol>   
     </div>
     <div class="table-container">
         <h4 class="heading">Top Artists</h4>
         <form id="artists-time-period" action="/home" method="get">
-            <select name="artist-time" onchange="autoSubmitForm2()">
+            <select name="artist-time" onchange="autoSubmitForm2()" class="select">
                 <option value="short_term" {% if artist_time_range == 'short_term' %}selected{% endif %}>This Month</option>
                 <option value="medium_term" {% if artist_time_range == 'medium_term' %}selected{% endif %}>6 Months</option>
                 <option value="long_term" {% if artist_time_range == 'long_term' %}selected{% endif %}>This Year</option>
             </select>   
             <!-- Hidden input to store the current track-time value -->
             <input type="hidden" id="hidden-track-time" name="track-time" value="{{ track_time_range }}">
-        </form>        
-        <ol>
-            {% for artist in top_artists %}
-                <li>
-                    {{ artist["name"] }}
-                    <img src="{{ artist.image }}" alt="" class="home-images">
-                </li>
-            {% endfor %}
-        </ol>   
+        </form>   
+        <div class="list-div"> 
+            <ol>
+                {% for artist in top_artists %}
+                    <li>
+                        <div>{{ artist["name"] }}</div>
+                        <img src="{{ artist.image }}" alt="" class="home-images">
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>   
     </div>
 </div>
     
