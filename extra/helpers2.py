@@ -1,4 +1,4 @@
-from extra.queries import topArtists, topTracks, userProfile
+from extra.queries import topArtists, topTracks, userProfile, searchTracks
 
 def get_home_page_data(track_time_range, artist_time_range):
 
@@ -33,3 +33,14 @@ def get_user_profile():
     user_profile_data["user_profile_pic"] = user_profile_instance.get_user_profile_pic()
 
     return user_profile_data
+
+
+def get_song_search_data(track):
+
+    # create necessary instance
+    searched_songs_instance = searchTracks(track)
+
+    # get track's name
+    searched_songs_data = searched_songs_instance.get_tracks_info()
+
+    return searched_songs_data

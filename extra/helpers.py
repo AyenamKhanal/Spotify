@@ -1,6 +1,6 @@
 
 from functools import wraps
-from flask import session, redirect
+from flask import session, redirect, render_template
 from datetime import datetime
 
 
@@ -25,3 +25,28 @@ def session_expiry(f):
 
 def generate_headers():
     return  {'Authorization': f"Bearer {session['access_token']}"}
+
+
+def apology(message, code=400):
+    """Render message as an apology to user."""
+
+    def escape(s):
+        """
+        Escape special characters.
+
+        https://github.com/jacebrowning/memegen#special-characters
+        """
+        for old, new in [
+            ("-", "--"),
+            (" ", "-"),
+            ("_", "__"),
+            ("?", "~q"),
+            ("%", "~p"),
+            ("#", "~h"),
+            ("/", "~s"),
+            ('"', "''"),
+        ]:
+            s = s.replace(old, new)
+        return s
+
+    return render_template("apology.html", top=code, bottom=escape(message)), code

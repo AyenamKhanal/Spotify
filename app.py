@@ -5,7 +5,8 @@ from requests import post, get
 from flask import Flask, render_template, redirect, request, jsonify, session
 from datetime import datetime
 
-from extra.helpers2 import get_home_page_data, get_user_profile
+from extra.helpers2 import get_home_page_data, get_user_profile, get_song_search_data
+from extra.helpers import apology
 
 app = Flask(__name__, template_folder='templates')
 app.secret_key = "phenom"
@@ -124,7 +125,33 @@ def home():
 @app.route("/song-stats", methods=["GET", "POST"])
 def song_stats():
 
-    return render_template("song-stats.html", user_profile_pic=session["user_profile_pic"])
+    if request.method == "POST":
+            
+        track = request.form.get("track")
+
+        if not track:
+            return apology("Input track name", 404)
+        
+        song_search_data = get_song_search_data(track)
+
+        return render_template("songs-list.html",
+                                song_search_data=song_search_data,
+                                user_profile_pic=session["user_profile_pic"])
+
+
+    else:
+        return render_template("song-stats.html", user_profile_pic=session["user_profile_pic"])
+
+
+
+@app.route("/artist-stats", methods=["GET", "POST"])
+def artist_stats():
+
+    if request.method == ["POST"]:
+        pass
+    else:
+        return render_template("artist-stats.html", user_profile_pic=session["user_profile_pic"])
+
 
 
 if __name__ == '__main__':

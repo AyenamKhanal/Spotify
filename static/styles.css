@@ -155,6 +155,10 @@ select {
     margin: 0;
 }
 
+#logo:hover {
+    text-decoration: none;
+}
+
 .nav-bar-no-logo {
     width: 65%;
     display: flex;
@@ -190,7 +194,7 @@ select {
 }
 
 .search-div {
-    margin-top: 225px;
+    margin-top: 175px;
 }
 
 .search-button {

@@ -1,0 +1,17 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    Song Stats
+{% endblock %}
+
+{% block main %}
+
+    {% for track in song_search_data %}
+
+        <div>
+            {{ track["name"] }} - {{ track["artist"] }}
+            <img src="{{ track.image }}" alt="" class="home-images">
+        </div>
+
+    {% endfor %}
+{% endblock %}s
