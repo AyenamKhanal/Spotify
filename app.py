@@ -5,7 +5,7 @@ from requests import post, get
 from flask import Flask, render_template, redirect, request, jsonify, session
 from datetime import datetime
 
-from extra.helpers2 import get_home_page_data, get_user_profile, get_song_search_data, get_artist_search_data
+from extra.helpers2 import get_home_page_data, get_user_profile, get_song_search_data, get_artist_search_data, get_track_stats, get_track_by_id
 from extra.helpers import apology
 
 app = Flask(__name__, template_folder='templates')
@@ -163,6 +163,18 @@ def artist_stats():
 
     else:
         return render_template("artist-stats.html", user_profile_pic=session["user_profile_pic"])
+
+
+
+@app.route("/track-stats", methods=["POST"])
+def test():
+
+    trackid = request.form.get("trackid")
+
+    track_stats = get_track_stats(trackid)
+    track_details = get_track_by_id(trackid)
+    
+    return render_template("song-stats-details.html", track_stats=track_stats, track_details=track_details, user_profile_pic=session["user_profile_pic"])
 
 
 

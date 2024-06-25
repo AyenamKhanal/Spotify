@@ -57,7 +57,7 @@ class topTracks():
 
         # parse track names from json 
         for track in self.tracks["items"]:
-            self.track_info.append({"name": track["name"], "artists": track["artists"], "cover": track["album"]["images"][0]["url"]})
+            self.track_info.append({"name": track["name"], "artists": track["artists"], "cover": track["album"]["images"][0]["url"], "id": track["id"]})
 
         return self.track_info
     
@@ -85,7 +85,7 @@ class topArtists():
         self.artist_info = []
 
         for artist in self.artists["items"]:
-            self.artist_info.append({"name": artist["name"], "image": artist["images"][0]["url"] })
+            self.artist_info.append({"name": artist["name"], "image": artist["images"][0]["url"], "id": artist["id"]})
 
         return self.artist_info
 
@@ -112,7 +112,7 @@ class searchTracks():
 
         # parse track names from json 
         for track in self.searched_tracks["tracks"]["items"]:
-            self.tracks_info.append({"name": track["name"], "artists": track["artists"], "image": track["album"]["images"][0]["url"]})
+            self.tracks_info.append({"name": track["name"], "artists": track["artists"], "image": track["album"]["images"][0]["url"], "id": track["id"]})
 
         return self.tracks_info
 
@@ -139,6 +139,52 @@ class searchArtists():
 
         # parse track names from json 
         for artist in self.searched_artist["artists"]["items"]:
-            self.artist_info.append({"name": artist["name"], "image": artist["images"][0]["url"]})
+            self.artist_info.append({"name": artist["name"], "image": artist["images"][0]["url"], "id": artist["id"]})
 
         return self.artist_info
+
+
+class trackStats():
+
+    def __init__(self, trackid):
+
+        # generate headers
+        headers = generate_headers()
+
+        # request spotify for user's top tracks
+        response = get(API_BASE_URL + f'audio-features/{trackid}', headers=headers)
+    
+        # store tracks json meta data into tracks
+        self.track_stats = response.json()
+
+
+    def get_audio_features(self):
+
+        # the JSON is already in the necessary format so no need to parse it
+
+        # return the JSON itself
+        return self.track_stats
+    
+
+class trackByID():
+
+    def __init__(self, trackid):
+
+        # generate headers
+        headers = generate_headers()
+
+        # request spotify for user's top tracks
+        response = get(API_BASE_URL + f'tracks/{trackid}', headers=headers)
+    
+        # store tracks json meta data into tracks
+        self.track_details = response.json()
+
+
+    def get_track_details(self):
+
+        # the JSON is already in the necessary format so no need to parse it
+
+        # return the JSON itself
+        return self.track_details
+        
+        

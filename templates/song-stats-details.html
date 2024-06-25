@@ -1,0 +1,22 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    {{ track_details.name }}
+{% endblock %}
+
+{% block main %}
+
+<div class="table-container">
+    <h4 class="heading">
+        {{ track_details.name }} -
+        {% for artist in track_details.artists %}
+            {{ artist["name"] }}{% if loop.index0 + 1 != track_details["artists"] | length %},{% endif %}
+        {% endfor %}
+    </h4>  
+
+    <ul>
+        <li></li>
+    </ul>
+</div>
+
+{% endblock %}s
