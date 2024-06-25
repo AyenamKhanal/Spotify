@@ -63,3 +63,12 @@ def getmode(num):
 def gettime_signature(num):
     time_signatures = ["3/4", "4/4", "5/4", "6/4", "7/4"]
     return time_signatures[int(num - 3)]
+
+def getvalence(num):
+    if num < 0.33:
+        return "Melancholic"
+    elif num < 0.66:
+        return "Balanced"
+    else:
+        return "Cheerful"
+

@@ -22,8 +22,10 @@
                                 <img src="{{ track.image }}" alt="" class="home-images">
     
                                 <div class="view-stats-container">
-                                    <a href="" class="view-stats">View Stats</a>
-                                </div>
+                                    <form action="/track-stats" method="post">
+                                        <input type="hidden" name="trackid" value="{{ track.id }}">
+                                        <button type="submit" class="view-stats">View Stats</a>
+                                    </form>                                </div>
                             </div>                        
                         </li>
                         
