@@ -188,3 +188,23 @@ class trackByID():
         return self.track_details
         
         
+class artistByID():
+
+    def __init__(self, artistid):
+
+        # generate headers
+        headers = generate_headers()
+
+        # request spotify for user's top tracks
+        response = get(API_BASE_URL + f'artists/{artistid}', headers=headers)
+    
+        # store artist json meta data into artists-details
+        self.artist_details = response.json()
+
+
+    def get_artist_details(self):
+
+        # the JSON is already in the necessary format so no need to parse it
+
+        # return the JSON itself
+        return self.artist_details

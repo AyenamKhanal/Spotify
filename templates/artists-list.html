@@ -19,7 +19,10 @@
                                 <img src="{{ artist.image }}" alt="" class="home-images">
     
                                 <div class="view-stats-container">
-                                    <a href="" class="view-stats">View Stats</a>
+                                    <form action="/artist-stats-details" method="post">
+                                        <input type="hidden" name="artistid" value="{{ artist.id }}">
+                                        <button type="submit" class="view-stats">View Stats</a>
+                                    </form>                               
                                 </div>
                             </div>                        
                         </li>

@@ -49,7 +49,7 @@
                             <img src="{{ track.cover }}" alt="" class="home-images">
 
                             <div class="view-stats-container">
-                                <form action="/track-stats" method="post">
+                                <form action="/track-stats-details" method="post">
                                     <input type="hidden" name="trackid" value="{{ track.id }}">
                                     <button type="submit" class="view-stats">View Stats</a>
                                 </form>
@@ -78,7 +78,7 @@
                         <img src="{{ artist.image }}" alt="" class="home-images">
 
                         <div class="view-stats-container">
-                            <form action="/test" method="post">
+                            <form action="/artist-stats-details" method="post">
                                 <input type="hidden" name="artistid" value="{{ artist.id }}">
                                 <button type="submit" class="view-stats">View Stats</a>
                             </form>
