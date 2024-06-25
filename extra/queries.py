@@ -86,6 +86,8 @@ class topArtists():
 
         for artist in self.artists["items"]:
             self.artist_info.append({"name": artist["name"], "image": artist["images"][0]["url"], "id": artist["id"]})
+            #self.artist_info.append({"name": artist["name"], "id": artist["id"]})
+
 
         return self.artist_info
 
@@ -139,7 +141,11 @@ class searchArtists():
 
         # parse track names from json 
         for artist in self.searched_artist["artists"]["items"]:
-            self.artist_info.append({"name": artist["name"], "image": artist["images"][0]["url"], "id": artist["id"]})
+            # try and except because some results don't have images, in those cases ignore and "continue" onto the next result 
+            try: 
+                self.artist_info.append({"name": artist["name"], "image": artist["images"][0]["url"], "id": artist["id"]})
+            except IndexError:
+                continue
 
         return self.artist_info
 

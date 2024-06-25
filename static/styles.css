@@ -276,6 +276,10 @@ li {
     text-align: left;
 }
 
+.stats-list ul li {
+    margin-bottom: 25%;
+}
+
 .stats-and-pic {
     display: flex;
     justify-content: space-between;

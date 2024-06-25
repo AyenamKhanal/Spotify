@@ -16,9 +16,19 @@
             <div class="stats-list">
                 <ul>
                     <li><span class="bold-text">Followers:</span> {{ artist_details.followers.total }}</li>
-                </ul>
-                
+                    <li>
+                        <span class="bold-text">Genres:</span>
+                        {% for genre in artist_details.genres %}
+                            {{ genre }}{% if loop.index0 + 1 != artist_details.genres | length %},{% endif %}
+                        {% endfor %}
+                    </li>
+                    <li><span class="bold-text">Popularity:</span> {{ artist_details.popularity }}</li>
+
+
+                </ul>    
             </div>
+            <img src="{{ artist_details.images[0].url }}" alt="" class="details-img">
+
         </div>
     </div>
 </div>
