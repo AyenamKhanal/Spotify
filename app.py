@@ -6,10 +6,11 @@ from flask import Flask, render_template, redirect, request, jsonify, session
 from datetime import datetime
 
 from extra.helpers2 import get_home_page_data, get_user_profile, get_song_search_data, get_artist_search_data, get_track_stats, get_track_by_id
-from extra.helpers import apology
+from extra.helpers import apology, getkey
 
 app = Flask(__name__, template_folder='templates')
 app.secret_key = "phenom"
+app.jinja_env.globals['getkey'] = getkey
 load_dotenv()
 
 CLIENT_ID = os.getenv("CLIENT_ID")

@@ -6,17 +6,20 @@
 
 {% block main %}
 
-<div class="table-container">
-    <h4 class="heading">
-        {{ track_details.name }} -
-        {% for artist in track_details.artists %}
-            {{ artist["name"] }}{% if loop.index0 + 1 != track_details["artists"] | length %},{% endif %}
-        {% endfor %}
-    </h4>  
+<div class="container">
+    <div class="table-container">
+        <h4 class="heading">
+            {{ track_details.name }} -
+            {% for artist in track_details.artists %}
+                {{ artist["name"] }}{% if loop.index0 + 1 != track_details["artists"] | length %},{% endif %}
+            {% endfor %}
+        </h4>  
 
-    <ul>
-        <li></li>
-    </ul>
+        <ul>
+            <li>Key: {{ getkey(track_stats.key) }}</li>
+            <li>Tempo: {{ track_stats.tempo }} BPM</li>
+        </ul>
+    </div>
 </div>
 
 {% endblock %}s
