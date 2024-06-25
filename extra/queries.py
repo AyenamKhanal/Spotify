@@ -214,3 +214,40 @@ class artistByID():
 
         # return the JSON itself
         return self.artist_details
+    
+
+class likedSongs():
+
+    def __init__(self):
+
+        # generate headers
+        self.headers = generate_headers()
+
+        # request spotify for user's top tracks
+        response = get(API_BASE_URL + 'me/tracks?limit=20', headers=self.headers)
+    
+        # store artist json meta data into artists-details
+        self.liked_songs_info = response.json()
+
+
+    def get_liked_songs_details(self):
+
+        self.liked_songs = []
+        count = 0 
+
+        while count < self.liked_songs_info["total"]:
+            for song in self.liked_songs_info["items"]:
+                self.liked_songs.append({"name": song["track"]["name"], "artists": song["track"]["artists"], "id": song["track"]["id"]})
+                count += 1
+            
+            # request spotify for user's next page top tracks
+            response = get(self.liked_songs_info["next"], headers=self.headers)
+    
+            # store artist json meta data into artists-details
+            self.liked_songs_info = response.json()
+        
+
+        return self.liked_songs
+
+        
+

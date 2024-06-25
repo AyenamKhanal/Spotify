@@ -5,7 +5,7 @@ from requests import post, get
 from flask import Flask, render_template, redirect, request, jsonify, session
 from datetime import datetime
 
-from extra.helpers2 import get_home_page_data, get_user_profile, get_song_search_data, get_artist_search_data, get_track_stats, get_track_by_id, get_artist_by_id
+from extra.helpers2 import get_home_page_data, get_user_profile, get_song_search_data, get_artist_search_data, get_track_stats, get_track_by_id, get_artist_by_id, get_liked_songs
 from extra.helpers import apology, getkey, getmode, gettime_signature, getvalence
 
 app = Flask(__name__, template_folder='templates')
@@ -195,6 +195,10 @@ def artist_stats_details():
     return render_template("artist-stats-details.html", artist_details=artist_details, user_profile_pic=session["user_profile_pic"])
 
 
+@app.route("/playlists")
+def playlists():
+
+    return render_template("test.html", response=get_liked_songs(), user_profile_pic=session["user_profile_pic"])
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
