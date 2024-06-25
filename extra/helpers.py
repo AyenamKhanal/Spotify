@@ -53,7 +53,7 @@ def apology(message, code=400):
 
 
 def getkey(num):
-    keys = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B' ]
+    keys = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
     return keys[int(num)]
 
 def getmode(num):

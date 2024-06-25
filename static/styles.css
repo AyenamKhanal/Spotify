@@ -264,3 +264,29 @@ li {
 .list-item {
     margin: 25px 0px;
 }
+
+li {
+    list-style-type: none; /* Remove bullets */
+}
+
+.stats-list {
+    margin: 30px 5px;
+    display: flex;
+    text-align: left;
+}
+
+.stats-and-pic {
+    display: flex;
+    justify-content: space-between;
+}
+
+.details-img {
+    margin: 30px 5px;
+    width: 50%;
+    height: 25%;
+    box-shadow: 0 0 10px black;
+}
+
+.bold-text {
+    font-weight: bold;
+}

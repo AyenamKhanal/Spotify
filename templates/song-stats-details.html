@@ -15,12 +15,17 @@
             {% endfor %}
         </h4>  
 
-        <ul>
-            <li>Key: {{ getkey(track_stats.key) }} {{ getmode(track_stats.mode)}}</li>
-            <li>Tempo: {{ track_stats.tempo }} BPM</li>
-            <li>Time Signature: {{ gettime_signature(track_stats.time_signature) }}</li>
-            <li>Mood: {{getvalence(track_stats.valence) }}</li>
-        </ul>
+        <div class="stats-and-pic">
+            <div class="stats-list">
+                <ul>
+                    <li><span class="bold-text">Key:</span> {{ getkey(track_stats.key) }} {{ getmode(track_stats.mode)}}</li>
+                    <li><span class="bold-text">Tempo:</span> {{ track_stats.tempo }} BPM</li>
+                    <li><span class="bold-text">Time Signature:</span> {{ gettime_signature(track_stats.time_signature) }}</li>
+                    <li><span class="bold-text">Mood:</span> {{getvalence(track_stats.valence) }}</li>
+                </ul>
+            </div>
+            <img src="{{ track_details.album.images[0].url }}" alt="" class="details-img">
+        </div>
     </div>
 </div>
 
