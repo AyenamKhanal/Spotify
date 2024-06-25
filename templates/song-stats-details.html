@@ -16,8 +16,9 @@
         </h4>  
 
         <ul>
-            <li>Key: {{ getkey(track_stats.key) }}</li>
+            <li>Key: {{ getkey(track_stats.key) }} {{ getmode(track_stats.mode)}}</li>
             <li>Tempo: {{ track_stats.tempo }} BPM</li>
+            <li>Time Signature: {{ gettime_signature(track_stats.time_signature) }}</li>
         </ul>
     </div>
 </div>

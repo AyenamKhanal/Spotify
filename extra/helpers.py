@@ -53,7 +53,13 @@ def apology(message, code=400):
 
 
 def getkey(num):
-
     keys = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B' ]
-
     return keys[int(num)]
+
+def getmode(num):
+    modes = ["Major", "Minor"]
+    return modes[int(num)]
+
+def gettime_signature(num):
+    time_signatures = ["3/4", "4/4", "5/4", "6/4", "7/4"]
+    return time_signatures[int(num - 3)]
