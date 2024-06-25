@@ -190,10 +190,9 @@ def artist_stats_details():
 
     artistid = request.form.get("artistid")
 
-    artist_stats = get_track_stats(artistid)
-    artist_details = get_track_by_id(artistid)
+    artist_details = get_artist_by_id(artistid)
     
-    return render_template("artist-stats-details.html", artist_stats=artist_stats, artist_details=artist_details, user_profile_pic=session["user_profile_pic"])
+    return render_template("artist-stats-details.html", artist_details=artist_details, user_profile_pic=session["user_profile_pic"])
 
 
 
