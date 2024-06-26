@@ -1,11 +1,12 @@
 {% extends "layout1.html" %}
 
 {% block title %}
-    Test
+    {{ nextpage }}
 {% endblock %}
 
 {% block main %}
 
-    <h1>Pie Chart</h1>
-    <img src="{{ url_for('pie_chart') }}" alt="Pie Chart">
+    This can take upto a minute.
+    Please Wait...
+
 {% endblock %}s

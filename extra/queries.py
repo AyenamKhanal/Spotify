@@ -237,11 +237,19 @@ class likedSongs():
 
         while count < self.liked_songs_info["total"]:
             for song in self.liked_songs_info["items"]:
-                self.liked_songs.append({"name": song["track"]["name"], "artists": song["track"]["artists"], "id": song["track"]["id"]})
+
+                try:
+                    image_url = song["track"]["album"]["images"][0]["url"]
+                except IndexError:
+                    image_url = None
+
+                self.liked_songs.append({"name": song["track"]["name"], "artists": song["track"]["artists"], "id": song["track"]["id"], "image": image_url})
                 count += 1
             
             # request spotify for user's next page top tracks
-            response = get(self.liked_songs_info["next"], headers=self.headers)
+            if self.liked_songs_info["next"]:
+                response = get(self.liked_songs_info["next"], headers=self.headers)
+           
     
             # store artist json meta data into artists-details
             self.liked_songs_info = response.json()

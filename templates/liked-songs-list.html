@@ -1,0 +1,36 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    Liked Songs
+{% endblock %}
+
+{% block main %}
+
+        <div class="container">
+            <div class="table-container"> 
+                <h4 class="heading">Liked Songs"</h4>     
+                <ol>
+                    {% for track in liked_songs %}
+        
+                        <li class="list-item">
+                            {{ track["name"] }} - 
+                            {% for artist in track["artists"] %}
+                                {{ artist["name"] }}{% if loop.index0 + 1 != track["artists"] | length %},{% endif %}
+                            {% endfor %}
+                            
+                            <div class="track-details">
+                                <img src="{{ track.image }}" alt="" class="home-images">
+    
+                                <div class="view-stats-container">
+                                    <form action="/track-stats-details" method="post">
+                                        <input type="hidden" name="trackid" value="{{ track.id }}">
+                                        <button type="submit" class="view-stats">View Stats</a>
+                                    </form>                                
+                                </div>
+                            </div>                        
+                        </li>
+                        
+                    {% endfor %}
+                </ol>   
+            </div>
+{% endblock %}s
