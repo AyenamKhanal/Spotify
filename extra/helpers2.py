@@ -1,4 +1,4 @@
-from extra.queries import topArtists, topTracks, userProfile, searchTracks, searchArtists, trackStats, trackByID, artistByID, likedSongs
+from extra.queries import topArtists, topTracks, userProfile, searchTracks, searchArtists, trackStats, trackByID, artistByID
 
 def get_home_page_data(track_time_range, artist_time_range):
 
@@ -85,13 +85,3 @@ def get_artist_by_id(artistid):
     artist_details = artist_details_instance.get_artist_details()
 
     return artist_details 
-
-def get_liked_songs():
-
-    #create necessary instance
-    liked_songs_instance = likedSongs()
-
-    # get all liked songs details
-    liked_songs_details = liked_songs_instance.get_liked_songs_details()
-
-    return liked_songs_details
